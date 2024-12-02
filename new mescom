@@ -74,11 +74,12 @@ public class metholliyarproject {
 
         if(recload>sanctionload){
             y=recload-sanctionload;
-            System.out.println(y);
+            System.out.println("excess load "+y);
             
             z=(18.6*10*y);
+            System.out.println("excess load penalty "+z);
             x=x+z;
-            System.out.println(x);
+            System.out.println("total amount is paid "+x);
 
         }
     }
