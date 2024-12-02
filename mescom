@@ -1,0 +1,85 @@
+import java.util.*;
+public class metholliyarproject {
+        public static double z,x,y,recload,gruhajyothitotal,newload,usedload,sanctionload,entitlementunit,consumedunit,fixedcharge,total,tax,FPPCA,energycharges;
+        public static void calculate(double consumedunit){
+            fixedcharge=120*sanctionload;
+            System.out.println("Fixed charge ="+fixedcharge);
+            energycharges=consumedunit*5.90;
+            System.out.println("Energy charges ="+energycharges);
+            FPPCA=consumedunit*0.3;
+            System.out.println("FPPCA = "+FPPCA);
+            tax=(energycharges/100)*9;
+            System.out.println("tax= "+tax);
+            total+=fixedcharge+energycharges+FPPCA+tax;
+            System.out.println("Total= "+ total);
+        }
+        public static void gruhajyothi(double entitlementunit){
+            if(entitlementunit==0){
+                fixedcharge=0*sanctionload;
+            }
+            else{
+                    fixedcharge=120*sanctionload;
+            }
+            System.out.println("Fixed charge ="+fixedcharge);
+            energycharges=entitlementunit*5.90;
+            System.out.println("Energy charges ="+energycharges);
+            FPPCA=entitlementunit*0.3;
+            System.out.println("FPPCA = "+FPPCA);
+            tax=(energycharges/100)*9;
+            System.out.println("tax= "+tax);
+            gruhajyothitotal+=fixedcharge+energycharges+FPPCA+tax;
+            System.out.println("Total= "+ gruhajyothitotal);
+        }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the sanctioned load");
+        sanctionload=sc.nextDouble();
+        System.out.println("Enter the entitlement units");
+        entitlementunit=sc.nextDouble();
+        System.out.println("Enter the consumed units");
+        consumedunit=sc.nextDouble();
+        System.out.println("Enter the recorded load");
+        recload=sc.nextDouble();
+        System.out.println("****************");
+       if(consumedunit>entitlementunit){
+            calculate(consumedunit);
+            System.out.println("*******************");
+            System.out.println("GRUHA JYOTHI SUBSIDY");
+            gruhajyothi(entitlementunit);
+        }
+        else if(entitlementunit>consumedunit){
+            calculate(consumedunit);
+            System.out.println("***********************");
+            System.out.println("GRUHA JYOTHI SUBSIDY");
+            gruhajyothi(consumedunit);
+        }
+        else if(entitlementunit==consumedunit){
+            calculate(consumedunit);
+            gruhajyothi(entitlementunit);
+        }
+        System.out.println("**************************");
+        System.out.println("total= "+total);
+        System.out.println("gruhajyothitotal= "+gruhajyothitotal);
+        if(gruhajyothitotal<total){
+            System.out.println("*****************");
+            
+            x=total-gruhajyothitotal;
+            System.out.println("Total amount to be paid is= "+x);
+        }
+        else if(total==gruhajyothitotal){
+            
+            x=total-gruhajyothitotal;
+            System.out.println("Total amount to be paid is= "+x);
+        }
+
+        if(recload>sanctionload){
+            y=recload-sanctionload;
+            System.out.println(y);
+            
+            z=(17.31*10*y);
+            x=x+z;
+            System.out.println(x);
+
+        }
+    }
+}
